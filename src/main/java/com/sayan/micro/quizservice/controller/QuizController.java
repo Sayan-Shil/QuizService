@@ -1,8 +1,10 @@
 package com.sayan.micro.quizservice.controller;
 
 import com.sayan.micro.quizservice.entities.Quiz;
+import com.sayan.micro.quizservice.services.QuestionClient;
 import com.sayan.micro.quizservice.services.QuizService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,8 @@ import java.util.List;
 public class QuizController {
 
     private final QuizService quizService;
+
+
     @PostMapping
     public ResponseEntity<Quiz> createQuiz(@RequestBody Quiz quiz) {
         Quiz savedQuiz = quizService.addQuiz(quiz);
@@ -22,6 +26,7 @@ public class QuizController {
 
     @GetMapping
     public ResponseEntity<List<Quiz>> getAllQuizzes() {
+
         return ResponseEntity.ok(quizService.getQuizes());
     }
 

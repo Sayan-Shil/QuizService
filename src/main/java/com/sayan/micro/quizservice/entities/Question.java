@@ -6,20 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-import java.util.List;
 
-@Entity
-@Getter
 @Setter
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class Quiz {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String title;
-
-    transient List<Question> questions;
+public class Question {
+    private Long id;
+    private String question;
+    private Long quizId;
 }
